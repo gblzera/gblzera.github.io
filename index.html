@@ -2,10 +2,10 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>🎉 Parabéns Paula 🎂</title>
+  <title>Parabéns Paula</title>
 
   <!-- Open Graph -->
-  <meta property="og:title" content="🎉 Pacote especial: Parabéns Paula 🎂" />
+  <meta property="og:title" content="Pacote: Parabéns Paula" />
   <meta property="og:description" content="GET /birthday -> HTTP/1.1 200 OK" />
   <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/6/6a/Birthday_cake_icon.png" />
   <meta property="og:type" content="website" />
@@ -17,6 +17,7 @@
       color: #00ff00;
       font-family: monospace;
       padding: 20px;
+      overflow-x: hidden;
     }
 
     h1 {
@@ -24,32 +25,25 @@
       text-align: center;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-      box-shadow: 0 0 10px #0f0;
-    }
-
-    th, td {
-      border: 1px solid #0f0;
-      padding: 8px;
-      text-align: left;
-    }
-
-    th {
+    #terminal {
       background: #111;
-      color: #0ff;
+      border: 2px solid #0f0;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 0 15px #0f0;
+      height: 400px;
+      overflow-y: auto;
     }
 
-    td {
-      background: #111;
+    .packet {
+      margin: 5px 0;
     }
 
-    .info {
-      color: #f0f;
-      font-weight: bold;
-    }
+    .time { color: #888; }
+    .source { color: #0ff; }
+    .destination { color: #ff0; }
+    .protocol { color: #f0f; }
+    .info { color: #0f0; font-weight: bold; }
 
     .footer {
       margin-top: 20px;
@@ -60,49 +54,43 @@
   </style>
 </head>
 <body>
-<h1>🎉 Parabéns Paula 🎂</h1>
+<h1>Parabéns Paula</h1>
 
-<table>
-  <tr>
-    <th>Time</th>
-    <th>Source</th>
-    <th>Destination</th>
-    <th>Protocol</th>
-    <th>Info</th>
-  </tr>
-  <tr>
-    <td>00:00:01</td>
-    <td>Amigos &lt;3</td>
-    <td>Paula</td>
-    <td>TCP</td>
-    <td class="info">🎂 Payload: Feliz aniversário, Paula! 🥳</td>
-  </tr>
-  <tr>
-    <td>00:00:02</td>
-    <td>Família</td>
-    <td>Paula</td>
-    <td>UDP</td>
-    <td class="info">🎉 Pacotes de alegria transmitidos com sucesso</td>
-  </tr>
-  <tr>
-    <td>00:00:03</td>
-    <td>Professor de Redes</td>
-    <td>Paula</td>
-    <td>ICMP</td>
-    <td class="info">📡 Echo Reply: Latência zero de felicidade</td>
-  </tr>
-  <tr>
-    <td>00:00:04</td>
-    <td>Amigos & Fam</td>
-    <td>Paula</td>
-    <td>TCP</td>
-    <td class="info">🥳 Throughput de alegrias máximo, perda de pacotes 0%</td>
-  </tr>
-</table>
+<div id="terminal"></div>
 
 <div class="footer">
-  Mensagem transmitida com sucesso via camada de aplicação.  
-  📡 Total Celebration Protocol ativado!
+  📡 Total Celebration Protocol ativado! Camada de aplicação transmitindo felicidade.
 </div>
+
+<script>
+const terminal = document.getElementById('terminal');
+
+// Lista de pacotes animados
+const packets = [
+  {time:'00:00:01', source:'Desempregados', dest:'Paula', protocol:'TCP', info:'Feliz aniversário, Paula!'},
+  {time:'00:00:02', source:'Família', dest:'Paula', protocol:'UDP', info:'Pacotes de alegria transmitidos com sucesso'},
+  {time:'00:00:03', source:'Professor de Redes', dest:'Paula', protocol:'ICMP', info:'Echo Reply: Latência zero de felicidade'},
+  {time:'00:00:04', source:'Amigos & Fam', dest:'Paula', protocol:'TCP', info:'Throughput de alegrias máximo, perda de pacotes 0%'},
+  {time:'00:00:05', source:'Rede global', dest:'Paula', protocol:'HTTP', info:'GET /parabens?para=Paula -> 200 OK'}
+];
+
+// Função para mostrar pacotes com delay
+let i = 0;
+function showPacket() {
+  if(i >= packets.length) return;
+  const p = packets[i];
+  const div = document.createElement('div');
+  div.classList.add('packet');
+  div.innerHTML = `<span class="time">${p.time}</span> | <span class="source">${p.source}</span> -> <span class="destination">${p.dest}</span> | <span class="protocol">${p.protocol}</span> | <span class="info">${p.info}</span>`;
+  terminal.appendChild(div);
+  terminal.scrollTop = terminal.scrollHeight; // rolar automaticamente
+  i++;
+  setTimeout(showPacket, 1500); // mostra um pacote a cada 1.5s
+}
+
+// Inicia animação
+showPacket();
+</script>
+
 </body>
 </html>
