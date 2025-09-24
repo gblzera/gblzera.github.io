@@ -2,11 +2,11 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Parabéns Paula</title>
+  <title>🎉 Parabéns Paula 🎂</title>
 
-  <!-- Open Graph para WhatsApp -->
-  <meta property="og:title" content="Parabéns Paula" />
-  <meta property="og:description" content="GET /parabens -> HTTP/1.1 200 OK" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="🎉 Pacote especial: Parabéns Paula 🎂" />
+  <meta property="og:description" content="GET /birthday -> HTTP/1.1 200 OK" />
   <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/6/6a/Birthday_cake_icon.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://gblzera.github.io/" />
@@ -17,22 +17,49 @@
       color: #00ff00;
       font-family: monospace;
       padding: 20px;
-      white-space: pre-wrap;
     }
-    .header { color: #00ffff; }
-    .status { color: #ffff00; }
-    .body { margin-top: 1em; }
+    .terminal {
+      background: #111;
+      border: 2px solid #0f0;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 0 15px #0f0;
+    }
+    .cmd { color: #0ff; }
+    .resp { color: #ff0; }
+    .packet { color: #0f0; }
+    .highlight { color: #f0f; font-weight: bold; }
+    .footer {
+      margin-top: 20px;
+      color: #aaa;
+      font-size: 0.9em;
+    }
   </style>
 </head>
 <body>
+<div class="terminal">
 <pre>
-<span class="header">GET /parabens?para=Paula HTTP/1.1
+<span class="cmd">GET /birthday?dest=Paula HTTP/1.1
 Host: gblzera.github.io:80</span>
 
-<span class="status">HTTP/1.1 200 OK
-Content-Type: text/plain</span>
+<span class="resp">HTTP/1.1 200 OK
+Content-Type: application/celebration</span>
 
-<span class="body">Feliz aniversário, Paula!</span>
+<span class="packet">[Packet captured]</span>
+<span class="packet">Source: Amigos &lt;3</span>
+<span class="packet">Destination: Paula</span>
+<span class="packet">Protocol: 🎉 TCP (Total Celebration Protocol)</span>
+<span class="packet">Payload:</span>
+
+<span class="highlight">🥳 Feliz aniversário, Paula!
+🎂 Que seu dia tenha throughput de alegrias,
+latência zero de felicidade
+e perda de pacotes igual a 0%!</span>
 </pre>
+</div>
+
+<div class="footer">
+  📡 Mensagem transmitida com sucesso via camada de aplicação.
+</div>
 </body>
 </html>
