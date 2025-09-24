@@ -18,48 +18,91 @@
       font-family: monospace;
       padding: 20px;
     }
-    .terminal {
-      background: #111;
-      border: 2px solid #0f0;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 0 15px #0f0;
+
+    h1 {
+      color: #0ff;
+      text-align: center;
     }
-    .cmd { color: #0ff; }
-    .resp { color: #ff0; }
-    .packet { color: #0f0; }
-    .highlight { color: #f0f; font-weight: bold; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      box-shadow: 0 0 10px #0f0;
+    }
+
+    th, td {
+      border: 1px solid #0f0;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background: #111;
+      color: #0ff;
+    }
+
+    td {
+      background: #111;
+    }
+
+    .info {
+      color: #f0f;
+      font-weight: bold;
+    }
+
     .footer {
       margin-top: 20px;
       color: #aaa;
       font-size: 0.9em;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-<div class="terminal">
-<pre>
-<span class="cmd">GET /birthday?dest=Paula HTTP/1.1
-Host: gblzera.github.io:80</span>
+<h1>🎉 Parabéns Paula 🎂</h1>
 
-<span class="resp">HTTP/1.1 200 OK
-Content-Type: application/celebration</span>
-
-<span class="packet">[Packet captured]</span>
-<span class="packet">Source: Amigos &lt;3</span>
-<span class="packet">Destination: Paula</span>
-<span class="packet">Protocol: 🎉 TCP (Total Celebration Protocol)</span>
-<span class="packet">Payload:</span>
-
-<span class="highlight">🥳 Feliz aniversário, Paula!
-🎂 Que seu dia tenha throughput de alegrias,
-latência zero de felicidade
-e perda de pacotes igual a 0%!</span>
-</pre>
-</div>
+<table>
+  <tr>
+    <th>Time</th>
+    <th>Source</th>
+    <th>Destination</th>
+    <th>Protocol</th>
+    <th>Info</th>
+  </tr>
+  <tr>
+    <td>00:00:01</td>
+    <td>Amigos &lt;3</td>
+    <td>Paula</td>
+    <td>TCP</td>
+    <td class="info">🎂 Payload: Feliz aniversário, Paula! 🥳</td>
+  </tr>
+  <tr>
+    <td>00:00:02</td>
+    <td>Família</td>
+    <td>Paula</td>
+    <td>UDP</td>
+    <td class="info">🎉 Pacotes de alegria transmitidos com sucesso</td>
+  </tr>
+  <tr>
+    <td>00:00:03</td>
+    <td>Professor de Redes</td>
+    <td>Paula</td>
+    <td>ICMP</td>
+    <td class="info">📡 Echo Reply: Latência zero de felicidade</td>
+  </tr>
+  <tr>
+    <td>00:00:04</td>
+    <td>Amigos & Fam</td>
+    <td>Paula</td>
+    <td>TCP</td>
+    <td class="info">🥳 Throughput de alegrias máximo, perda de pacotes 0%</td>
+  </tr>
+</table>
 
 <div class="footer">
-  📡 Mensagem transmitida com sucesso via camada de aplicação.
+  Mensagem transmitida com sucesso via camada de aplicação.  
+  📡 Total Celebration Protocol ativado!
 </div>
 </body>
 </html>
